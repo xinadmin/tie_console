@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link href="css/base.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<style type="text/css">
+			.zui-bar-tab {
+				position: fixed;
+				left: 0;
+				bottom: 0;
+				display: table;
+				width: 100%;
+				height: 50px;
+				padding: 0;
+				table-layout: fixed;
+				border-top: 0;
+				border-bottom: 0;
+				background-color: #fff;
+			}
+			.zui-bar-tab .zui-tab-item {
+				display: table-cell;
+				overflow: hidden;
+				width: 1%;
+				height: 50px;
+				text-align: center;
+				vertical-align: middle;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				color: #929292;
+			}
+
+			.zui-bar-tab .zui-tab-item .zui-icon {
+				top: 3px;
+				width: 24px;
+				height: 24px;
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+
+			.zui-bar-tab .zui-tab-item .zui-icon~.zui-tab-label {
+				font-size: 11px;
+				display: block;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.zui-bar-tab .zui-tab-item.zui-active {
+				color: #007aff;
+			}
+		</style>
+		<title></title>
+	</head>
+	<body>
+		<nav class="zui-bar-tab">
+
+			<!-- <nav class="mui-bar mui-bar-tab" style="box-shadow: none;"> -->
+			<a class="zui-active zui-tab-item" href="index.html">
+				<span class="zui-icon  iconfont icon-shouye-tianchong"></span>
+				<span class="zui-tab-label">帖子</span>
+			</a>
+			<a class="zui-tab-item" href="baobiao.html">
+				<span class="zui-icon iconfont  icon-baobiao"></span>
+				<span class="zui-tab-label">报表</span>
+			</a>
+			<a class="zui-tab-item" href="zixun.html">
+				<span class="zui-icon iconfont icon-zixun"></span>
+				<span class="zui-tab-label">资讯</span>
+			</a>
+			<a class="zui-tab-item" href="user.html">
+				<span class="zui-icon  iconfont icon-wodemian"></span>
+				<span class="zui-tab-label">会员中心</span>
+			</a>
+		</nav>
+	</body>
+</html>

@@ -1,0 +1,66 @@
+@font-face {
+	font-family: "iconfont";
+	src:url('../fonts/iconfont.ttf') format('truetype');
+	/* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+
+}
+
+.iconfont {
+ font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-baobiao2:before {
+	content: "\e61e";
+}
+
+.icon-baobiao:before {
+	content: "\e619";
+}
+
+.icon-baobiaofenxi:before {
+	content: "\e617";
+}
+
+.icon-wodemian:before {
+	content: "\e60e";
+}
+
+.icon-shouye:before {
+	content: "\e641";
+}
+
+.icon-shouye1:before {
+	content: "\e656";
+}
+
+.icon-PCbofangye_tuwenzixun:before {
+	content: "\e642";
+}
+
+.icon-zixun:before {
+	content: "\e6f9";
+}
+
+.icon-shouye2:before {
+	content: "\e60c";
+}
+
+.icon-shouye3:before {
+	content: "\e77e";
+}
+
+.icon-wodedangxuan:before {
+	content: "\e607";
+}
+
+.icon-wode:before {
+	content: "\e61a";
+}
+
+.icon-shouye-tianchong:before {
+	content: "\e735";
+}

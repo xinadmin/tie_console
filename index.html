@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link href="css/base.css" rel="stylesheet" />
+		<!-- <link rel="stylesheet" href="css/iconfont.css" /> -->
+		<title>首页</title>
+		<style type="text/css">
+			.zui-fixed {
+				position: fixed;
+				left: 0;
+				width: 100%;
+				top: 0;
+				display: table;
+				height: 50px;
+				padding: 0;
+				table-layout: fixed;
+				border-top: 0;
+				border-bottom: 0;
+				background-color: #fff;
+			}
+
+			.zui-herder {
+				width: 100%;
+				overflow: hidden;
+				border-bottom: solid 1px #F1F1F1;
+			}
+
+			.zui-sousuo {
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				left: 5px;
+				top: 0;
+				background: url(img/sousuo.png) no-repeat center center;
+				background-size: 25px;
+			}
+
+			.zui-title {
+				width: 100%;
+				text-align: center;
+				overflow: hidden;
+			}
+
+			.zui-title .zui-nav {
+				height: 50px;
+				line-height: 50px;
+				display: inline-block;
+				position: relative;
+				padding: 0 8px;
+				font-size: 1.1rem;
+				color: #343434;
+			}
+
+			.zui-title .zui-nav .line {
+				position: absolute;
+				width: 12px;
+				height: 2px;
+				bottom: 3px;
+				left: 50%;
+				margin-left: -6px;
+				border-bottom: solid 3px #12a6ff;
+			}
+			.zui-title .zui-active {
+				color: #12a6ff !important;
+			}
+			.zui-container {
+				width: 100%;
+				overflow: hidden;
+				margin-top: 50px;
+			}
+			.zui-content {
+				width: 100%;
+				overflow: hidden;
+			}
+			.zui-content .zui-list-item {
+				width: 100%;
+				padding: 0.8rem;
+				box-sizing: border-box;
+				background-color: #fff;
+				overflow: hidden;
+			}
+			.zui-content .zui-list-item .zui-item-top {
+				width: 100%;
+			     overflow: hidden;
+			}
+			.zui-item-top .zui-pic-bg{
+				float: left;
+				display: inline-block;
+				width: 3.2rem;
+				height: 3.2rem;
+				border-radius: 50%;
+				background-color: #007AFF;
+				margin-right: 1.2rem;
+			}
+			.zui-item-top .zui-pic-bg .zui-pic{
+				width: 100%;
+				height: 100%;
+			}
+			.zui-item-top .zui-text {
+				display: inline-block;
+				height: 3.3rem;
+				line-height: 3.2rem;
+				float: left;
+				color: #a4a4a4;
+				font-size: 1.2rem;
+			}
+				.zui-item-top .zui-close {
+				display: inline-block;
+				height: 3.3rem;
+				width: 3.3rem;
+				float: right;
+				background: url(img/close.png) no-repeat right center;
+				background-size: 2.0rem;
+			}
+			.zui-item-center {
+				width: 100%;
+				overflow: hidden;
+			}
+			.zui-item-center .zui-title {
+				/* display: ; */
+			}
+		</style>
+	</head>
+	<body>
+		<header class="zui-fixed zui-herder">
+			<span class="zui-sousuo"></span>
+			<div class="zui-title">
+				<span class="zui-nav zui-active">推荐<i class="line"></i></span>
+				<span class="zui-nav">视频<i></i></span>
+				<span class="zui-nav">图文<i></i></span>
+			</div>
+		</header>
+		<div class="zui-container">
+			
+			<div class="zui-content">
+				<div class="zui-list">
+					<div class="zui-list-item">
+					<div class="zui-item-top">
+						<div class="zui-pic-bg">
+						<img src="img/sousuo.png" class="zui-pic"/>
+						</div>
+						<span class="zui-text">VEZ MAN</span>
+						<span class="zui-close"></span>
+					</div>
+					<div class="zui-item-center">
+						<span class="zui-title">jQuery 教程 jQuery是一个 JavaScript库。 jQuery极大地简化了 JavaScript编程。 jQuery很容易学习。本章节的每一篇都包含了在线实例通过本站的在线编辑器,你可以在线运行...</span>
+					</div>
+					</div>
+				</div>
+				
+				
+				
+			</div>
+			
+			
+			<div class="zui-content">132456</div>
+			
+			<div class="zui-content">04897</div>
+
+		</div>
+	</body>
+</html>
+<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".zui-title").on("click",".zui-nav",function(){
+			$(".zui-nav").removeClass("zui-active"); 
+			$(".zui-nav > i").removeClass("line");
+			var indexvalue=$(this).index();
+			$(this).addClass("zui-active").children("i").addClass("line");
+			// $(this).addClass("zui-active");
+			$(".container > .content").eq(indexvalue).show().siblings().hide();
+		})
+	});
+</script>
