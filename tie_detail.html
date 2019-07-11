@@ -2,88 +2,153 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<link href="css/base.css" rel="stylesheet" />
 		<title>帖子详情</title>
 		<style type="text/css">
+			.zui-fixed {
+				position: fixed;
+				left: 0;
+				width: 100%;
+				top: 0;
+				display: table;
+				height: 50px;
+				padding: 0;
+				table-layout: fixed;
+				border-top: 0;
+				border-bottom: 0;
+				background-color: #fff;
+			}
+
+			.zui-header {
+				width: 100%;
+				overflow: hidden;
+				text-align: center;
+				background-color: #fff;
+				border-bottom: solid 1px #F1F1F1;
+			}
+
+			.zui-back {
+				height: 50px;
+				line-height: 50px;
+				display: inline-block;
+				position: absolute;
+				left: 8px;
+				top: 0;
+				padding-left: 26px;
+				background: url(img/back.png) no-repeat left center;
+				background-size: 25px;
+				color: rgba(0, 0, 0, 0.8);
+
+			}
+
+			.zui-header .zui-title {
+				width: 100%;
+				text-align: center;
+				overflow: hidden;
+			}
+
+			.zui-header .zui-title .zui-title-span {
+				display: inline-block;
+				width: 60%;
+				height: 50px;
+				line-height: 50px;
+				color: rgba(0, 0, 0, 0.8);
+			}
+
 			.zui-list-item {
 				width: 100%;
 				padding: 0.8rem;
 				box-sizing: border-box;
 				background-color: #ffffff;
 				overflow: hidden;
+				margin-top: 50px;
 			}
-			
-			.zui-content .zui-list-item .zui-item-top {
+
+			.zui-list-item .zui-item-top {
 				width: 100%;
 				overflow: hidden;
 			}
-			
+
 			.zui-item-top .zui-pic-bg {
 				float: left;
 				display: inline-block;
-				width: 3.2rem;
-				height: 3.2rem;
+				width: 2.2rem;
+				height: 2.2rem;
+				overflow: hidden;
 				border-radius: 50%;
 				background-color: #007AFF;
 				margin-right: 1.2rem;
 			}
-			
+
 			.zui-item-top .zui-pic-bg .zui-pic {
 				width: 100%;
 				height: 100%;
 			}
-			
+
 			.zui-item-top .zui-text {
 				display: inline-block;
-				height: 3.3rem;
-				line-height: 3.2rem;
+				height: 2.2rem;
+				line-height: 2.2rem;
 				float: left;
 				color: #a4a4a4;
-				font-size: 1.2rem;
+				font-size: 0.9rem;
 			}
+
+			.zui-item-top .zui-close {
+				display: inline-block;
+				height: 2.2rem;
+				line-height: 2.2rem;
+				padding-left: 1.5rem;
+				float: right;
+				font-size: 0.9rem;
+				color: #8b8b8b;
+				background: url(img/yanjing.png) no-repeat left center;
+				background-size: 1.3rem;
+			}
+
 			.zui-item-center {
 				width: 100%;
 				overflow: hidden;
+				margin-top: 0.6rem;
 			}
-			
+
 			.zui-item-center .zui-title {
 				width: 100%;
-				max-height: 3.2rem;
-				min-height: 1.6rem;
-				line-height: 1.6rem;
-				display: -webkit-box;
-				-webkit-box-orient: vertical;
-				-webkit-line-clamp: 2;
-				overflow: hidden;
 				text-align: left;
 				font-size: 0.9rem;
 				font-weight: 500;
 				padding-bottom: 0.2rem;
+				color: rgba(0, 0, 0, 0.75);
 			}
-			
+
 			.zui-pic-list {
 				width: 100%;
 				margin-top: 0.5rem;
 				overflow: hidden;
 			}
-			
+
 			.zui-pic-item {
-				width: 6.6rem;
-				height: 6.8rem;
+				width: 100%;
+				height: 100%;
 				float: left;
 				display: inline-block;
-				margin: 0.2rem 0.2rem 0 0;
+				margin-top: 0.2rem;
 			}
 		</style>
 	</head>
 	<body>
+		<header class="zui-header zui-fixed">
+			<span class="zui-back" onclick="javascript:history.back(-1);">返回</span>
+			<p class="zui-title"><span class="zui-title-span"> 教程 jQuery是一个<span></p>
+		</header>
 		<div class="zui-list-item">
 			<div class="zui-item-top">
 				<div class="zui-pic-bg">
-					<img src="img/sousuo.png" class="zui-pic" />
+					<img src="img/touxiang.png" class="zui-pic" />
 				</div>
 				<span class="zui-text">VEZ MAN</span>
+				<span class="zui-close">152</span>
 			</div>
 			<div class="zui-item-center">
 				<span class="zui-title">jQuery 教程 jQuery是一个 JavaScript库。 jQuery极大地简化了 JavaScript编程。
@@ -91,7 +156,7 @@
 				<div class="zui-pic-list">
 					<img src="img/chufang1.jpg" class="zui-pic-item" />
 					<img src="img/chufang1.jpg" class="zui-pic-item" />
-					<video src="" class="zui-pic-item"></video>
+					<!-- <video src="" class="zui-pic-item"></video> -->
 					<!-- <img src="img/chufang1.jpg" class="zui-pic-item" />
 					<img src="img/chufang1.jpg" class="zui-pic-item" /> -->
 				</div>
@@ -100,9 +165,9 @@
 					<span class="zui-spec">#王者榮耀</span>
 					<span class="zui-spec">#王者榮耀</span>
 				</div>
-			
-			
+
+
 			</div>
-			</div>
+		</div>
 	</body>
 </html>
