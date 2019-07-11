@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<link href="css/base.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
 		<title>首页</title>
 		<style type="text/css">
 			.zui-fixed {
@@ -17,7 +18,7 @@
 				table-layout: fixed;
 				border-top: 0;
 				border-bottom: 0;
-				background-color: #fff;
+				background-color: rgba(0, 0, 0, 0.8);
 			}
 
 			.zui-header {
@@ -26,14 +27,43 @@
 				border-bottom: solid 1px #F1F1F1;
 			}
 
-			.zui-sousuo {
+			.zui-header .zui-sousuo {
+				display: inline-block;
 				width: 50px;
 				height: 50px;
 				position: absolute;
 				left: 5px;
 				top: 0;
-				background: url(img/sousuo.png) no-repeat center center;
+				background: url(img/liebiao.png) no-repeat center center;
 				background-size: 25px;
+			}
+
+			#zui-slide {
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				right: 5px;
+				top: 0;
+				background: url(img/jiantou.png) no-repeat center center;
+				background-size: 25px;
+				z-index: 111;
+			}
+
+			#zui-slide:hover {
+				cursor: pointer;
+			}
+
+			.zui-header .tranform {
+				transform: rotate(180deg);
+				-ms-transform: rotate(180deg);
+				/* IE 9 */
+				-moz-transform: rotate(180deg);
+				/* Firefox */
+				-webkit-transform: rotate(180deg);
+				/* Safari 和 Chrome */
+				-o-transform: rotate(180deg);
+				/* Opera */
 			}
 
 			.zui-header .zui-title {
@@ -49,21 +79,7 @@
 				position: relative;
 				padding: 0 8px;
 				font-size: 1.1rem;
-				color: #343434;
-			}
-
-			.zui-title .zui-nav .line {
-				position: absolute;
-				width: 12px;
-				height: 2px;
-				bottom: 3px;
-				left: 50%;
-				margin-left: -6px;
-				border-bottom: solid 3px #12a6ff;
-			}
-
-			.zui-title .zui-active {
-				color: #12a6ff !important;
+				color: #fff;
 			}
 
 			.zui-container {
@@ -134,21 +150,23 @@
 				width: 100%;
 				overflow: hidden;
 			}
-           .zui-item-center .zui-title {
-			   width: 100%;
-			   text-align: left;
-			   display: inline-block;
-			   color: rgba(0,0,0,0.8);
-			   font-size: 1.0rem;
-			   padding: 0.5rem 0;
-		   } 
+
+			.zui-item-center .zui-title {
+				width: 100%;
+				text-align: left;
+				display: inline-block;
+				color: rgba(0, 0, 0, 0.8);
+				font-size: 1.0rem;
+				padding: 0.5rem 0;
+			}
+
 			.zui-item-center .zui-message {
 				display: inline-block;
 				width: 100%;
 				text-align: left;
 				font-size: 0.8rem;
 				font-weight: 500;
-				color: rgba(0,0,0,0.6);
+				color: rgba(0, 0, 0, 0.6);
 			}
 
 			.zui-pic-list {
@@ -220,12 +238,14 @@
 				height: 1.2rem;
 				margin: 0 0.2rem;
 			}
+
 			.zui-item-Evaluation .zui-item-footer {
 				width: 100%;
 				overflow: hidden;
 				margin-top: 0.8rem;
 			}
-			.zui-item-Evaluation .zui-item-footer  .zui-item-btn {
+
+			.zui-item-Evaluation .zui-item-footer .zui-item-btn {
 				display: inline-block;
 				width: 25%;
 				float: left;
@@ -237,6 +257,7 @@
 				text-align: center;
 				font-size: 0.8rem;
 			}
+
 			.zui-item-btn .zui-icon {
 				float: left;
 				display: inline-block;
@@ -247,165 +268,363 @@
 				border: solid 1px #8a8a8a;
 				border-radius: 50%;
 			}
-			.zui-item-btn  .zui-item-eva {
-			 background: url(img/pinglungray.png) no-repeat center center;
-			 background-size: 1.3rem;
-			 
-			} 		
+
+			.zui-item-btn .zui-item-eva {
+				background: url(img/pinglungray.png) no-repeat center center;
+				background-size: 1.3rem;
+
+			}
+
 			.zui-item-btn .zui-item-fenxiang {
 				background: url(img/fenxianggray.png) no-repeat center center;
 				background-size: 1.1rem;
 			}
+
 			.zui-item-btn .zui-item-ding {
 				background: url(img/topgray.png) no-repeat center center;
 				background-size: 1.1rem;
 			}
+
 			.zui-item-btn .zui-item-bad {
 				background: url(img/bottomgray.png) no-repeat center center;
 				background-size: 1.1rem;
 
 			}
+
 			.zui-btn-item {
 				display: inline-block;
 				overflow: hidden;
 				background: url(img/fabu.png) no-repeat center 0.5rem;
 				background-size: 1.6rem;
-				background-color:#12a6ff;
+				background-color: #f1c814;
 				color: #fff;
-				padding: 2.0rem 0.4rem 0.2rem;
+				padding: 2.0rem 0.8rem 0.2rem;
 				position: fixed;
-				bottom: 40%;
-				right: 0.6rem;
+				bottom: 20%;
+				right: 1.2rem;
 			}
+
 			.zui-btn-item .zui-btn-title {
 				font-size: 0.8rem;
 			}
-					</style>
+
+			.zui-nav-bg {
+				width: 100%;
+				overflow: hidden;
+				position: fixed;
+				left: 0;
+				top: 50px;
+				z-index: 111;
+				background-color: rgba(0, 0, 0, 0.8);
+			}
+
+			.zui-nav-bg .zui-ul-hover {
+				animation: animation 0.3s 1;
+				height: 100%;
+
+			}
+
+			@keyframes animation {
+				0% {
+					height: 25%;
+				}
+
+				,
+				50% {
+					height: 50%;
+				}
+
+				,
+				75% {
+					height: 75%;
+				}
+
+				,
+				100% {
+					height: 100%;
+				}
+			}
+
+			.zui-ul {
+				width: 100%;
+				overflow: hidden;
+				height: 0;
+
+			}
+
+			.zui-ul .zui-li {
+				float: left;
+				width: 25%;
+			}
+
+			.zui-li-item {
+				display: block;
+				height: 3.2rem;
+				line-height: 3.2rem;
+				color: #fff;
+				text-align: center;
+				width: 100%;
+				font-size: 1.0rem;
+
+			}
+
+			.zui-li-item:active,
+			.zui-li-item:hover {
+				background-color: #fff;
+				color: #f1c804;
+				font-weight: 500;
+			}
+
+			.zui-Dialog {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				background-color: rgba(0, 0, 0, 0.1);
+				z-index: 99;
+			}
+
+			.zui-Dialog .zui-content {
+				width: 65%;
+				position: absolute;
+				top: 50%;
+				 left: 50%;
+				-ms-transform: translate(-50%, -50%);
+				 -moz-transform: translate(-50%, -50%);
+				-o-transform: translate(-50%, -50%);
+			     transform: translate(-50%, -50%);
+				background-color: #fff;
+				overflow: hidden;
+				border-radius: 4px;
+			}
+
+			.zui-Dialog .zui-content .zui-title {
+				display: inline-block;
+				width: 100%;
+				text-align: center;
+				padding: 1.2rem 0;
+				font-size: 1.2rem;
+			}
+
+			.zui-Dialog .zui-content .zui-content-header {
+				width: 90%;
+				margin: 0 auto;
+				text-align: left;
+				font-size: 1.0rem;
+				padding: 1.2rem 0;
+				line-height: 1.4rem;
+			}
+
+			.zui-Dialog .zui-content .zui-btn-list {
+				width: 100%;
+				overflow: hidden;
+				border-top: solid 1px #F1F1F1;
+			}
+
+			.zui-Dialog .zui-content .zui-btn-list .zui-btn {
+				display: inline-block;
+				width: 50%;
+				float: left;
+				height: 2.6rem;
+				line-height: 2.6rem;
+				box-sizing: border-box;
+				border-right: solid 1px #F1F1F1;
+				background-color: #fff;
+				font-size: 0.9rem;
+				color: #333333;
+			}
+
+			.zui-Dialog .zui-content .zui-btn-list .zui-btn:last-child {
+				border: none;
+			}
+		</style>
 	</head>
 	<body>
-		<header class="zui-fixed zui-header">
-			<!-- <span class="zui-sousuo"></span> -->
-			<div class="zui-title">
-				<span class="zui-nav zui-active">推荐<i class="line"></i></span>
-				<span class="zui-nav">视频<i></i></span>
-				<span class="zui-nav">图文<i></i></span>
+		<div id="zui-content">
+			<header class="zui-fixed zui-header">
+				<span class="zui-sousuo" onclick="isslide()"></span>
+				<div class="zui-title">
+					<span class="zui-nav">推荐</span>
+				</div>
+				<span id="zui-slide" :class="tranform" onclick="isslide()"></span>
+			</header>
+			<div class="zui-nav-bg">
+				<ul :class="[test1Class,test2Class]">
+					<li class="zui-li">
+						<a class="zui-li-item">综合分类</a>
+					</li>
+					<li class="zui-li">
+						<a class="zui-li-item">综合分类</a>
+					</li>
+					<li class="zui-li">
+						<a class="zui-li-item">综合分类</a>
+					</li>
+					<li class="zui-li">
+						<a class="zui-li-item">综合分类</a>
+					</li>
+					<li class="zui-li">
+						<a class="zui-li-item">综合分类</a>
+					</li>
+					<li class="zui-li">
+						<a class="zui-li-item">综合分类</a>
+					</li>
+					<li class="zui-li">
+						<a class="zui-li-item">综合分类</a>
+					</li>
+					<li class="zui-li">
+						<a class="zui-li-item">综合分类</a>
+					</li>
+					<li class="zui-li">
+						<a class="zui-li-item">综合分类</a>
+					</li>
+					<li class="zui-li">
+						<a class="zui-li-item">综合分类</a>
+					</li>
+					<li class="zui-li">
+						<a class="zui-li-item">综合分类</a>
+					</li>
+					<li class="zui-li">
+						<a class="zui-li-item">综合分类</a>
+					</li>
+				</ul>
 			</div>
-		</header>
-		<div class="zui-container">
-
-			<div class="zui-content">
-				<div class="zui-list">
-					<a href="tie_detail.html">			
+			<div class="zui-container">
+				<div class="zui-content">
+					<div class="zui-list">
+						<a href="tie_detail.html">
 							<div class="zui-list-item">
-						<div class="zui-item-top">
-							<div class="zui-pic-bg">
-								<img src="img/touxiang.png" class="zui-pic" />
-							</div>
-							<span class="zui-text">VEZ MAN</span>
-							<span class="zui-close">152</span>
-						</div>
-						<div class="zui-item-center">
-							<span class="zui-title">jQuery 教程 jQuery是一个</span>
-							<span class="zui-message">jQuery 教程 jQuery是一个 JavaScript库。 jQuery极大地简化了 JavaScript编程。
-								jQuery很容易学习。本章节的每一篇都包含了在线实例通过本站的在线编辑器,你可以在线运行</span>
-							<div class="zui-pic-list">
-								<img src="img/chufang1.jpg" class="zui-pic-item" />
-								<img src="img/chufang1.jpg" class="zui-pic-item" />
-								<img src="img/chufang1.jpg" class="zui-pic-item" />
-								<img src="img/chufang1.jpg" class="zui-pic-item" />
-							</div>
-							<div class="zui-item-spec">
-								<span class="zui-spec">#王者榮耀</span>
-								<span class="zui-spec">#王者榮耀</span>
-								<span class="zui-spec">#王者榮耀</span>
-							</div>
-
-
-						</div>
-						<!-- <div class="zui-item-Evaluation">
-							<div class="zui-item-header">
-								<span class="zui-item-title">神評</span>
-								<div class="zui-item-fr">
-									<span class="zui-point zui-point-praise"><img src="img/Arrow_Up.png" class="zui-item-pic" />252</span>
-									<span class="zui-point zui-point-Bad"><img src="img/Arrow_Up_1.png" class="zui-item-pic" />25</span>
+								<div class="zui-item-top">
+									<div class="zui-pic-bg">
+										<img src="img/touxiang.png" class="zui-pic" />
+									</div>
+									<span class="zui-text">VEZ MAN</span>
+									<span class="zui-close">152</span>
+								</div>
+								<div class="zui-item-center">
+									<span class="zui-title">jQuery 教程 jQuery是一个</span>
+									<span class="zui-message">jQuery 教程 jQuery是一个 JavaScript库。 jQuery极大地简化了 JavaScript编程。
+										jQuery很容易学习。本章节的每一篇都包含了在线实例通过本站的在线编辑器,你可以在线运行</span>
+									<div class="zui-pic-list">
+										<img src="img/chufang1.jpg" class="zui-pic-item" />
+										<img src="img/chufang1.jpg" class="zui-pic-item" />
+										<img src="img/chufang1.jpg" class="zui-pic-item" />
+										<img src="img/chufang1.jpg" class="zui-pic-item" />
+									</div>
+									<div class="zui-item-spec">
+										<span class="zui-spec">#王者榮耀</span>
+										<span class="zui-spec">#王者榮耀</span>
+										<span class="zui-spec">#王者榮耀</span>
+									</div>
 								</div>
 							</div>
+						</a>
+
+						<div class="zui-list-item">
+							<div class="zui-item-top">
+								<div class="zui-pic-bg">
+									<img src="img/touxiang.png" class="zui-pic" />
+								</div>
+								<span class="zui-text">VEZ MAN</span>
+								<span class="zui-close">152</span>
+							</div>
 							<div class="zui-item-center">
-								<span class="zui-title">jQuery 教程 jQuery是一个 JavaScript库。 jQuery极大地简化了 JavaScript编程。
+								<span class="zui-title">jQuery 教程 jQuery是一个</span>
+								<span class="zui-message">jQuery 教程 jQuery是一个 JavaScript库。 jQuery极大地简化了 JavaScript编程。
 									jQuery很容易学习。本章节的每一篇都包含了在线实例通过本站的在线编辑器,你可以在线运行</span>
 								<div class="zui-pic-list">
 									<img src="img/chufang1.jpg" class="zui-pic-item" />
 									<img src="img/chufang1.jpg" class="zui-pic-item" />
+									<img src="img/chufang1.jpg" class="zui-pic-item" />
+									<img src="img/chufang1.jpg" class="zui-pic-item" />
 								</div>
+								<div class="zui-item-spec">
+									<span class="zui-spec">#王者榮耀</span>
+									<span class="zui-spec">#王者榮耀</span>
+									<span class="zui-spec">#王者榮耀</span>
+								</div>
+
+
 							</div>
-						    <div class="zui-item-footer">
-								<span class="zui-item-btn"><i class="zui-icon zui-item-eva"></i>1123</span>
-							    <span class="zui-item-btn "><i class="zui-icon zui-item-fenxiang"></i>12</span>
-								<span class="zui-item-btn "><i class="zui-icon zui-item-ding"></i>12</span>
-								<span class="zui-item-btn "><i class="zui-icon zui-item-bad"></i>0</span>
+						</div>
 
-							</div>
-						</div> -->
+
 					</div>
-				</a>
-				
-				<div class="zui-list-item">
-					<div class="zui-item-top">
-						<div class="zui-pic-bg">
-							<img src="img/touxiang.png" class="zui-pic" />
-						</div>
-						<span class="zui-text">VEZ MAN</span>
-						<span class="zui-close">152</span>
-					</div>
-					<div class="zui-item-center">
-						<span class="zui-title">jQuery 教程 jQuery是一个</span>
-						<span class="zui-message">jQuery 教程 jQuery是一个 JavaScript库。 jQuery极大地简化了 JavaScript编程。
-							jQuery很容易学习。本章节的每一篇都包含了在线实例通过本站的在线编辑器,你可以在线运行</span>
-						<div class="zui-pic-list">
-							<img src="img/chufang1.jpg" class="zui-pic-item" />
-							<img src="img/chufang1.jpg" class="zui-pic-item" />
-							<img src="img/chufang1.jpg" class="zui-pic-item" />
-							<img src="img/chufang1.jpg" class="zui-pic-item" />
-						</div>
-						<div class="zui-item-spec">
-							<span class="zui-spec">#王者榮耀</span>
-							<span class="zui-spec">#王者榮耀</span>
-							<span class="zui-spec">#王者榮耀</span>
-						</div>
-				
-				
-					</div>
+
+
+
 				</div>
-	
-				
-				</div>
-
-
-
 			</div>
-
-
-			<div class="zui-content">132456</div>
-
-			<div class="zui-content">04897</div>
-
+			<div class="zui-btn-item">
+				<span class="zui-btn-title">发布</span>
+			</div>
+			<div class="zui-Dialog" v-if="isshow">
+				<div class="zui-content">
+					<span class="zui-title">温馨提示</span>
+					<p class="zui-content-header">当前帖子属于收费业务，如需观看请点击确定跳转支付页面。</p>
+					<div class="zui-btn-list">
+						<button class="zui-btn" onclick="canel()">取消</button>
+						<button class="zui-btn" onclick="ok">确定</button>
+			
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="zui-btn-item">
-			<span class="zui-btn-title">发布</span>
-		</div>
+		<nav class="zui-bar-tab">
+			<a class="zui-active zui-tab-item" href="index.html">
+				<span class="zui-icon  iconfont icon-shouye-tianchong"></span>
+				<span class="zui-tab-label">帖子</span>
+			</a>
+			<a class="zui-tab-item" href="baobiao.html">
+				<span class="zui-icon iconfont  icon-baobiao"></span>
+				<span class="zui-tab-label">加群</span>
+			</a>
+			<a class="zui-tab-item" href="zixun.html">
+				<span class="zui-icon iconfont icon-zixun"></span>
+				<span class="zui-tab-label">资讯</span>
+			</a>
+			<a class="zui-tab-item" href="user.html">
+				<span class="zui-icon  iconfont icon-wodemian"></span>
+				<span class="zui-tab-label">会员中心</span>
+			</a>
+		</nav>
+		
 	</body>
 </html>
 <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/vue.min.js"></script>
 <script type="text/javascript">
-	$(function() {
-		$(".zui-title").on("click", ".zui-nav", function() {
-			$(".zui-nav").removeClass("zui-active");
-			$(".zui-nav > i").removeClass("line");
-			var indexvalue = $(this).index();
-			$(this).addClass("zui-active").children("i").addClass("line");
-			$(".container > .content").eq(indexvalue).show().siblings().hide();
-		})
+	function getDefaultData() {
+		return {
+			test1Class: "zui-ul",
+			test2Class: "",
+			tranform: "",
+			isshow:true
+		}
+	}
+	var vm = new Vue({
+		el: '#zui-content',
+		data: getDefaultData(),
+		methods: {
+			resetData: function() { //重置数据
+				Object.assign(this.$data, getDefaultData());
+			}
+		}
 	});
-	$("body").on("click",".zui-pic-list .zui-pic-item",function(){
-	})
+
+	function isslide() {
+		if (vm.test2Class == "") {
+			vm.test2Class = "zui-ul-hover";
+			vm.tranform = "tranform"
+		} else {
+			vm.test2Class = "";
+			vm.tranform = ""
+		}
+	}
+	function canel (){
+		vm.isshow = false;
+	}
+	function ok (){
+		vm.isshow=true;
+		}
 </script>
