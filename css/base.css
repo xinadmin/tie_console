@@ -36,7 +36,11 @@ button {
 	margin: 0;
 	outline-style: none;
 }
- * { touch-action: pan-y; } 
+
+* {
+	touch-action: pan-y;
+}
+
 ul,
 ol {
 	list-style: none;
@@ -48,6 +52,7 @@ input {
 	padding-bottom: 0;
 	font-family: "SimSun", "宋体";
 }
+
 select,
 input {
 	vertical-align: middle;
@@ -88,6 +93,7 @@ body {
 	height: 100%;
 	background: #f2f1f9;
 }
+
 .clearfix:before,
 .clearfix:after {
 	content: "";
@@ -107,10 +113,11 @@ a {
 	color: #000000;
 	text-decoration: none;
 }
+
 a:active {
-	color: #353535 ;
-	
+	color: #353535;
 }
+
 a:hover {
 	text-decoration: none;
 }
@@ -140,21 +147,27 @@ em {
 .col-orange {
 	color: #fc7f3d !important;
 }
+
 .col-gray {
 	color: #6f6f6f !important;
 }
+
 .col-qian-gray {
 	color: #737373 !important;
 }
+
 .col-black {
 	color: #010101 !important;
 }
+
 .col-meihong {
 	color: #c21554 !important;
 }
+
 .col-yellow {
 	color: yellow !important;
 }
+
 .col-lightbule {
 	color: #14c1ad;
 }
@@ -162,22 +175,28 @@ em {
 .col-blue {
 	color: #469bd4 !important;
 }
+
 .col-zong {
 	color: #bb9f93 !important;
 }
- .col-shenorange {
- color: #fe7621 !important;
- 	
- }
+
+.col-shenorange {
+	color: #fe7621 !important;
+}
+
 .col-zi {
 	color: #f840b1 !important;
 }
+
 .bg-wihte {
 	background: #fff;
 }
+
 .index_color_red {
 	color: #ff3300 !important;
 }
+
+
 /*公共类*/
 
 .w {
@@ -205,60 +224,131 @@ em {
 .ar {
 	text-align: right
 }
+
 .fengge {
 	width: 100%;
 	height: 10px;
 	background: #eeeeee;
 }
+
 .hide {
 	display: none
 }
+
 .fixed {
 	position: fixed;
 	top: 0;
 	z-index: 999;
 }
+
 .zui-bar-tab {
-				position: fixed;
-				left: 0;
-				bottom: 0;
-				display: table;
-				width: 100%;
-				height: 50px;
-				padding: 0;
-				table-layout: fixed;
-				border-top: 0;
-				border-bottom: 0;
-				background-color: #fff;
-			}
-			.zui-bar-tab .zui-tab-item {
-				display: table-cell;
-				overflow: hidden;
-				width: 1%;
-				height: 50px;
-				text-align: center;
-				vertical-align: middle;
-				white-space: nowrap;
-				text-overflow: ellipsis;
-				color: #929292;
-			}
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	display: table;
+	width: 100%;
+	height: 50px;
+	padding: 0;
+	table-layout: fixed;
+	border-top: 0;
+	border-bottom: 0;
+	background-color: #fff;
+}
 
-			.zui-bar-tab .zui-tab-item .zui-icon {
-				top: 3px;
-				width: 24px;
-				height: 24px;
-				padding-top: 0;
-				padding-bottom: 0;
-			}
+.zui-bar-tab .zui-tab-item {
+	display: table-cell;
+	overflow: hidden;
+	width: 1%;
+	height: 50px;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: #929292;
+}
 
-			.zui-bar-tab .zui-tab-item .zui-icon~.zui-tab-label {
-				font-size: 11px;
-				display: block;
-				overflow: hidden;
-				text-overflow: ellipsis;
-			}
+.zui-bar-tab .zui-tab-item .zui-icon {
+	top: 3px;
+	width: 24px;
+	height: 24px;
+	padding-top: 0;
+	padding-bottom: 0;
+}
 
-			.zui-bar-tab .zui-tab-item.zui-active {
-				color: #333333;
-			}
+.zui-bar-tab .zui-tab-item .zui-icon~.zui-tab-label {
+	font-size: 11px;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 
+.zui-bar-tab .zui-tab-item.zui-active {
+	color: #333333;
+}
+
+
+/*弹窗样式*/
+
+.zui-Dialog {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.1);
+	z-index: 99;
+}
+
+.zui-Dialog .zui-content {
+	width: 65%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	background-color: #fff;
+	overflow: hidden;
+	border-radius: 4px;
+}
+
+.zui-Dialog .zui-content .zui-title {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	padding: 1.2rem 0;
+	font-size: 1.2rem;
+}
+
+.zui-Dialog .zui-content .zui-content-header {
+	width: 90%;
+	margin: 0 auto;
+	text-align: left;
+	font-size: 1.0rem;
+	padding: 1.2rem 0;
+	line-height: 1.4rem;
+}
+
+.zui-Dialog .zui-content .zui-btn-list {
+	width: 100%;
+	overflow: hidden;
+	border-top: solid 1px #F1F1F1;
+}
+
+.zui-Dialog .zui-content .zui-btn-list .zui-btn {
+	display: inline-block;
+	width: 50%;
+	float: left;
+	height: 2.6rem;
+	line-height: 2.6rem;
+	box-sizing: border-box;
+	border-right: solid 1px #F1F1F1;
+	background-color: #fff;
+	font-size: 0.9rem;
+	color: #333333;
+}
+
+.zui-Dialog .zui-content .zui-btn-list .zui-btn:last-child {
+	border: none;
+}

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link href="css/base.css" rel="stylesheet" />
+		<title>我的贴子</title>
+		<style type="text/css">
+			body {
+				background-color: #fff;
+			}
+			
+			.zui-header {
+				width: 100%;
+				overflow: hidden;
+				text-align: center;
+				border-bottom: solid 1px #F1F1F1;
+				background-color: rgba(0, 0, 0, 0.8);
+			}
+			
+			.zui-back {
+				height: 50px;
+				line-height: 50px;
+				display: inline-block;
+				position: absolute;
+				left: 8px;
+				top: 0;
+				padding-left: 26px;
+				background: url(img/back.png) no-repeat left center;
+				background-size: 23px;
+				color: #fff;
+				font-size: 1.0rem;
+			}
+			
+			.zui-header .zui-title {
+				width: 100%;
+				text-align: center;
+				overflow: hidden;
+			}
+			
+			.zui-header .zui-title .zui-title-span {
+				display: inline-block;
+				width: 60%;
+				height: 50px;
+				line-height: 50px;
+				color: #fff;
+				font-size: 1.1rem;
+			}
+			
+			.tie {
+				width: 100%;
+				overflow: hidden;
+				box-sizing: border-box;
+				padding: 0.8rem;
+			}
+			
+			.tielist {
+				width: 100%;
+				overflow: hidden;
+				box-sizing: border-box;
+				padding: 0 0.3rem;
+				background-color: #F1F1F1;
+				border-radius: 0.5rem;
+				margin-bottom: 0.2rem;
+			}
+			
+			.tielist .title {
+				display: inline-block;
+				width: 100%;
+				color: #333333;
+				font-size: 1.2rem;
+				padding: 0.6rem 0;
+				box-sizing: border-box;
+			}
+			
+			.eyes {
+				float: right;
+				display: inline-block;
+				height: 1.8rem;
+				line-height: 1.8rem;
+				box-sizing: border-box;
+				padding: 0 0.3rem 0 1.6rem;
+				color: #929292;
+				font-size: 1.0rem;
+				background: url(img/yanjing.png) no-repeat 0 center;
+				background-size: 1.6rem;
+			}
+			
+			.tielist .content {
+				display: inline-block;
+				width: 100%;
+				color: #333333;
+				font-size: 0.9rem;
+				padding: 0.6rem 0;
+			}
+			
+			.imgdiv {
+				width: 100%;
+				overflow: hidden;
+				padding: 0 0 0.6rem 0;
+			}
+			
+			.imgdiv .img {
+				width: 4.5rem;
+				height: 4.5rem;
+			}
+			
+			.operation {
+				width: 100%;
+				overflow: hidden;
+			}
+			
+			.btn {
+				width: 33.33%;
+				float: left;
+				display: inline-block;
+				font-size: 1.0rem;
+				height: 2.2rem;
+				line-height: 2.2rem;
+				padding: 0.8rem 0;
+				color: rgba(0, 0, 0, 0.6);
+			}
+			
+			.zhiding {
+				display: inline-block;
+				width: 2.2rem;
+				height: 2.2rem;
+				float: left;
+				margin-left: 0.8rem;
+				background: url(img/zhiding.png) no-repeat left center;
+				background-size: 1.6rem;
+			}
+			
+			.shuaxin {
+				display: inline-block;
+				width: 1.7rem;
+				height: 1.7rem;
+				float: left;
+				margin: 0.25rem 0.4rem 0 0.8rem;
+				background: url(img/shuaxin.png) no-repeat left center;
+				background-size: 1.6rem;
+			}
+			
+			.delete {
+				display: inline-block;
+				width: 2.2rem;
+				height: 2.2rem;
+				float: left;
+				margin-left: 0.8rem;
+				background: url(img/shanchu.png) no-repeat left center;
+				background-size: 1.6rem;
+			}
+			
+			.shuaxinbtn .active {
+				animation: ani 0.3s infinite;
+			}
+			
+			.btn .zhidings {
+				background: url(img/zhiding1.png) no-repeat left center;
+				background-size: 1.6rem;
+			}
+			
+			.shuaxinbg {
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.1);
+				position: fixed;
+				left: 0;
+				top: 0;
+				z-index: 111;
+			}
+			
+			.textshuaxin {
+				display: inline-block;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				border-radius: 12px;
+				width: 6.6rem;
+				color: #fff;
+				text-align: center;
+				background-color: rgba(0, 0, 0, 0.4);
+				height: 5.6rem;
+				font-size: 1.1rem;
+				line-height: 2.6rem;
+				transform: translate(-50%, -50%);
+			}
+			
+			.textshuaxin .shuaxins {
+				display: inline-block;
+				width: 1.9rem;
+				height: 1.9rem;
+				margin: 0 auto;
+				background: url(img/shuaxinwhite.png) no-repeat center center;
+				background-size: 1.8rem;
+				animation: ani 1s infinite;
+			}
+			
+			@keyframes ani {
+				0% {
+					transform: rotate(0deg);
+					transform-origin: center;
+				}
+				100% {
+					transform: rotate(360deg);
+					transform-origin: center;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="zui-content">
+			<header class="zui-header">
+				<span class="zui-back" onclick="javascript:history.back(-1);">返回</span>
+				<p class="zui-title"><span class="zui-title-span">我的贴子<span></p>
+		   </header>
+			<div class="tie">
+				<div class="tielist">
+					<p class="title">jQuery教程jQuery是一个<s class="eyes">1563</s></p>
+					<s class="content">jQuery教程 jQuery是一个 JavaScript库。 jQuery极大地简化了 JavaScript编程。
+					jQuery很容易学习。本章节的每一篇都包含了在线实例通过本站的在线编辑器,你可以在线运行</s>
+					<div class="imgdiv">
+						<img src="img/chufang1.jpg" class="img" />
+						<img src="img/chufang1.jpg" class="img" />
+						<img src="img/chufang1.jpg" class="img" />
+					</div>
+					<div class="operation">
+						<span class="btn"><s class="zhiding zhidings"></s>置顶</span>
+					<span class="btn shuaxinbtn"><s class="shuaxin"></s>刷新</span>
+					<span class="btn"><s class="delete"></s>删除</span>
+
+		</div>
+		</div>
+		<div class="tielist">
+			<p class="title">jQuery教程jQuery是一个<s class="eyes">1563</s></p>
+			<s class="content">jQuery教程 jQuery是一个 JavaScript库。 jQuery极大地简化了 JavaScript编程。
+					jQuery很容易学习。本章节的每一篇都包含了在线实例通过本站的在线编辑器,你可以在线运行</s>
+			<div class="imgdiv">
+				<img src="img/chufang1.jpg" class="img" />
+				<img src="img/chufang1.jpg" class="img" />
+				<img src="img/chufang1.jpg" class="img" />
+			</div>
+			<div class="operation">
+				<span class="btn"><s class="zhiding zhidings"></s>置顶</span>
+				<span class="btn shuaxinbtn"><s class="shuaxin"></s>刷新</span>
+				<span class="btn"><s class="delete"></s>删除</span>
+
+			</div>
+		</div>
+		</div>
+		</div>
+		<div class="shuaxinbg">
+			<div class="textshuaxin">页面刷新中<s class="shuaxins"></s></div>
+		</div>
+	</body>
+
+</html>
+<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript">
+	function getDefaultData() {
+		return {
+			isshow: true
+		}
+	}
+	var vm = new Vue({
+		el: '#zui-content',
+		data: getDefaultData(),
+		methods: {
+			resetData: function() { //重置数据
+				Object.assign(this.$data, getDefaultData());
+			}
+		}
+	});
+	$(function() {
+		$(".shuaxinbtn").click(function() {
+			console.log("1231");
+			$(this).children(".shuaxin").addClass("active");
+		})
+	})
+</script>

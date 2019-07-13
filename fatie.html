@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link href="css/base.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/bases.css" />
+		<script src="js/jquery.min.js"></script>
+		<script src="js/Eleditor.min.js"></script>
+		<script src="js/webuploader.min.js"></script>
+		<title>发布贴子</title>
+		<style type="text/css">
+			body {
+				background-color: #fff;
+			}
+			
+			.zui-header {
+				width: 100%;
+				overflow: hidden;
+				text-align: center;
+				border-bottom: solid 1px #F1F1F1;
+				background-color: rgba(0, 0, 0, 0.8);
+			}
+			
+			.zui-back {
+				height: 50px;
+				line-height: 50px;
+				display: inline-block;
+				position: absolute;
+				left: 8px;
+				top: 0;
+				padding-left: 26px;
+				background: url(img/back.png) no-repeat left center;
+				background-size: 23px;
+				color: #fff;
+				font-size: 1.0rem;
+			}
+			
+			.zui-header .zui-title {
+				width: 100%;
+				text-align: center;
+				overflow: hidden;
+			}
+			
+			.zui-header .zui-title .zui-title-span {
+				display: inline-block;
+				width: 60%;
+				height: 50px;
+				line-height: 50px;
+				color: #fff;
+				font-size: 1.1rem;
+			}
+			
+			.contentdiv {
+				width: 100%;
+				box-sizing: border-box;
+				overflow: hidden;
+				padding: 0.8rem;
+				border-bottom: solid 1px #F1F1F1;
+				height: 5.5rem;
+			}
+			
+			.contentinner {
+				background-color: transparent;
+				border: none;
+				width: 100%;
+				font-size: 1.0rem;
+			}
+			
+			.contentdivs {
+				width: 100%;
+				box-sizing: border-box;
+				overflow: hidden;
+				padding: 0.8rem;
+				border-bottom: solid 1px #F1F1F1;
+				height: 8.5rem;
+			}
+			
+			.title {
+				padding: 0.6rem 0;
+				font-size: 1.2rem;
+			}
+			
+			.btnbg {
+				width: 100%;
+				padding: 0.8rem;
+				box-sizing: border-box;
+				overflow: hidden;
+				position: fixed;
+				left: 0;
+				bottom: 0;
+			}
+			
+			.shangchuang {
+				display: inline-block;
+				width: 100%;
+				background-color: red;
+				color: #fff;
+				padding: 1.0rem 0;
+				font-size: 1.1rem;
+				border-radius: 7px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="zui-header">
+			<span class="zui-back" onclick="javascript:history.back(-1);">返回</span>
+			<p class="zui-title"><span class="zui-title-span">发帖<span></p>
+		   </header>
+		   <div class="contentdiv">
+		   	<textarea placeholder="请输入贴子标题" class="contentinner"></textarea>
+		   </div>
+		   <div class="contentdivs">
+		   	<p class="title">请输入编辑内容</p>
+		   	<div id="contentEditor"></div>
+		   </div>
+		   <div class="btnbg">
+		   	<button class="shangchuang">上传</button>
+		   </div>
+	</body>
+
+</html>
+   <script type="text/javascript">
+    var Edr = new Eleditor({
+                el: '#contentEditor',
+                upload:{
+                   server: '/upload.json',
+                },
+        });
+    </script>

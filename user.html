@@ -4,7 +4,6 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<link href="css/base.css" rel="stylesheet" />
-		<link rel="stylesheet" href="css/mui.min.css">
 		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
 
 		<title>我的</title>
@@ -79,7 +78,6 @@
 				background: url(img/vip-tianchong.png) no-repeat 5px center;
 				background-size: 22px;
 				background-color: #d8b82a;
-				/* background-color: rgba(241,216,25,0.85); */
 			}
 
 			.operation {
@@ -170,9 +168,9 @@
 			.vipchongzhi {
 				display: inline-block;
 				width: 100%;
-				padding: 0.6rem 0;
+				padding: 0.8rem 0;
 				color: #fff;
-				border-radius: 15px;
+				border-radius: 20px;
 				background-color: #007AFF;
 			}
 		</style>
@@ -189,16 +187,15 @@
 				<div class="vip">
 					<s class="uservip" v-if="isvip">vip会员</s>
 					<s class="users" v:else>[普通会员]</s>
-
-
 				</div>
-
 			</header>
 			<div class="operation">
 				<div class="btn fl">
+					<a href="mytie.html">
 					<span class="num">0</span>
 
 					<span class="btnchongzhi">发帖数</span>
+					</a>
 				</div>
 				<div class="btn fr">
 					<span class="num">0.00</span>
@@ -209,10 +206,10 @@
 			<div class="list">
 				<ul class="uldiv">
 					<li class="lidiv">
-						<a><img src="img/ziliao.png" />资料填写</a>
+						<a href="editmessage.html"><img src="img/ziliao.png" />资料填写</a>
 					</li>
 					<li class="lidiv">
-						<a><img src="img/fatie.png" />我的帖子</a>
+						<a href="mytie.html"><img src="img/fatie.png" />我的帖子</a>
 					</li>
 					<li class="lidiv">
 						<a><img src="img/shezhi.png" />设置</a>
@@ -221,6 +218,17 @@
 			</div>
 			<div class="chongzhivip">
 				<button class="vipchongzhi">vip充值</button>
+			</div>
+			<div class="zui-Dialog" v-if="isshow">
+				<div class="zui-content">
+					<span class="zui-title">温馨提示</span>
+					<p class="zui-content-header">当前帖子属于收费业务，如需观看请点击确定跳转支付页面。</p>
+					<div class="zui-btn-list">
+						<button class="zui-btn" onclick="canel()">取消</button>
+						<button class="zui-btn" onclick="ok">确定</button>
+			
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
@@ -231,8 +239,6 @@
 	function getDefaultData() {
 		return {
 			isvip: false,
-			test2Class: "",
-			tranform: "",
 			isshow: true
 		}
 	}
