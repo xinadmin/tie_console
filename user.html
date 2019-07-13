@@ -133,10 +133,11 @@
 
 			.lidiv {
 				width: 100%;
-				border-radius: 15px;
 				overflow: hidden;
 				border-bottom: solid 1px rgba(221, 221, 221, 0.7);
 				margin-bottom: 2px;
+				background: url(img/qianjin.png) no-repeat right center;
+				background-size: 1.1rem;
 			}
 
 			.lidiv a {
@@ -217,7 +218,9 @@
 				</ul>
 			</div>
 			<div class="chongzhivip">
+				<a href="chongzhivip.html">
 				<button class="vipchongzhi">vip充值</button>
+			    </a>
 			</div>
 			<div class="zui-Dialog" v-if="isshow">
 				<div class="zui-content">
@@ -225,7 +228,7 @@
 					<p class="zui-content-header">当前帖子属于收费业务，如需观看请点击确定跳转支付页面。</p>
 					<div class="zui-btn-list">
 						<button class="zui-btn" onclick="canel()">取消</button>
-						<button class="zui-btn" onclick="ok">确定</button>
+						<button class="zui-btn" onclick="ok()">确定</button>
 			
 					</div>
 				</div>
@@ -267,6 +270,6 @@
 	}
 
 	function ok() {
-		vm.isshow = true;
+		location.href="chongzhivip.html"
 	}
 </script>

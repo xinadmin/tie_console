@@ -87,7 +87,7 @@
 				font-size: 0.9rem;
 			}
 
-			.zui-item-top .zui-close {
+			 .zui-dianzan {
 				display: inline-block;
 				height: 2.2rem;
 				line-height: 2.2rem;
@@ -95,10 +95,14 @@
 				float: right;
 				font-size: 0.9rem;
 				color: #8b8b8b;
-				background: url(img/yanjing.png) no-repeat left center;
+				background: url(img/dianzan.png) no-repeat left center;
 				background-size: 1.3rem;
 			}
-
+              .zui-item-top  .zui-dian-active{
+              	background: url(img/dianzan1.png) no-repeat left center;
+				background-size: 1.3rem;
+				color: #f1d819;
+              } 
 			.zui-item-center {
 				width: 100%;
 				overflow: hidden;
@@ -140,7 +144,7 @@
 					<img src="img/touxiang.png" class="zui-pic" />
 				</div>
 				<span class="zui-text">VEZ MAN</span>
-				<span class="zui-close">152</span>
+				<span class="zui-dianzan">152</span>
 			</div>
 			<div class="zui-item-center">
 				<span class="zui-title">jQuery 教程 jQuery是一个 JavaScript库。 jQuery极大地简化了 JavaScript编程。
@@ -154,3 +158,9 @@
 		</div>
 	</body>
 </html>
+<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(".zui-dianzan").click(function(){
+		$(this).toggleClass("zui-dian-active");
+	})
+</script>

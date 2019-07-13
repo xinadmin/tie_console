@@ -142,7 +142,7 @@
 				float: right;
 				font-size: 0.9rem;
 				color: #8b8b8b;
-				background: url(img/yanjing.png) no-repeat left center;
+				background: url(img/dianzan.png) no-repeat left center;
 				background-size: 1.3rem;
 			}
 
@@ -383,17 +383,18 @@
 				top: 0;
 				background-color: rgba(0, 0, 0, 0.1);
 				z-index: 99;
+				display: none;
 			}
 
 			.zui-Dialog .zui-content {
 				width: 65%;
 				position: absolute;
 				top: 50%;
-				 left: 50%;
+				left: 50%;
 				-ms-transform: translate(-50%, -50%);
-				 -moz-transform: translate(-50%, -50%);
+				-moz-transform: translate(-50%, -50%);
 				-o-transform: translate(-50%, -50%);
-			     transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
 				background-color: #fff;
 				overflow: hidden;
 				border-radius: 4px;
@@ -437,6 +438,15 @@
 
 			.zui-Dialog .zui-content .zui-btn-list .zui-btn:last-child {
 				border: none;
+			}
+
+			.refreshText {
+				position: absolute;
+				width: 100%;
+				line-height: 50px;
+				text-align: center;
+				left: 0;
+				top: 50px;
 			}
 		</style>
 	</head>
@@ -489,7 +499,8 @@
 					</li>
 				</ul>
 			</div>
-			<div class="zui-container">
+			<p class="refreshText"></p>
+			<div class="zui-container" id="refreshContainer">
 				<div class="zui-content">
 					<div class="zui-list">
 						<a href="tie_detail.html">
@@ -565,7 +576,7 @@
 					<div class="zui-btn-list">
 						<button class="zui-btn" onclick="canel()">取消</button>
 						<button class="zui-btn" onclick="ok()">确定</button>
-			
+
 					</div>
 				</div>
 			</div>
@@ -588,7 +599,7 @@
 				<span class="zui-tab-label">会员中心</span>
 			</a>
 		</nav>
-		
+
 	</body>
 </html>
 <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
@@ -599,7 +610,7 @@
 			test1Class: "zui-ul",
 			test2Class: "",
 			tranform: "",
-			isshow:true
+			isshow: true
 		}
 	}
 	var vm = new Vue({
@@ -621,11 +632,46 @@
 			vm.tranform = ""
 		}
 	}
-	function canel (){
+
+	function canel() {
 		vm.isshow = false;
 	}
-	function ok (){
-//		vm.isshow=true;
-          location.href="chongzhicenter.html";
-		}
+
+	function ok() {
+		//		vm.isshow=true;
+		location.href = "chongzhicenter.html";
+	}
+</script>
+<script type="text/javascript">
+	(function(window) {
+		var _element = document.getElementById('refreshContainer'),
+			_refreshText = document.querySelector('.refreshText'),
+			_startPos = 0,
+			_transitionHeight = 0;
+		_element.addEventListener('touchstart', function(e) {
+			console.log('初始位置：', e.touches[0].pageY);
+			_startPos = e.touches[0].pageY;
+			_element.style.position = 'relative';
+			_element.style.transition = 'transform 0s';
+		}, false);
+
+		_element.addEventListener('touchmove', function(e) {
+			console.log('当前位置：', e.touches[0].pageY);
+			_transitionHeight = e.touches[0].pageY - _startPos;
+
+			if (_transitionHeight > 0 && _transitionHeight < 60) {
+				_refreshText.innerText = '下拉刷新';
+				_element.style.transform = 'translateY(' + _transitionHeight + 'px)';
+				if (_transitionHeight > 55) {
+					_refreshText.innerText = '释放更新';
+				}
+			}
+		}, false);
+		_element.addEventListener('touchend', function(e) {
+			_element.style.transition = 'transform 0.5s ease 1s';
+			_element.style.transform = 'translateY(0px)';
+			_refreshText.innerText = '更新中...';
+			// todo...
+		}, false);
+	})(window);
 </script>

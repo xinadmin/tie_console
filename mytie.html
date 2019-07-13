@@ -115,7 +115,7 @@
 				width: 33.33%;
 				float: left;
 				display: inline-block;
-				font-size: 1.0rem;
+				font-size: 0.9rem;
 				height: 2.2rem;
 				line-height: 2.2rem;
 				padding: 0.8rem 0;
@@ -129,17 +129,18 @@
 				float: left;
 				margin-left: 0.8rem;
 				background: url(img/zhiding.png) no-repeat left center;
-				background-size: 1.6rem;
+				background-size: 1.4rem;
+				padding-left: 1.8rem;
 			}
 			
 			.shuaxin {
 				display: inline-block;
-				width: 1.7rem;
-				height: 1.7rem;
+				width: 1.5rem;
+				height: 1.5rem;
 				float: left;
 				margin: 0.25rem 0.4rem 0 0.8rem;
 				background: url(img/shuaxin.png) no-repeat left center;
-				background-size: 1.6rem;
+				background-size: 1.4rem;
 			}
 			
 			.delete {
@@ -149,16 +150,17 @@
 				float: left;
 				margin-left: 0.8rem;
 				background: url(img/shanchu.png) no-repeat left center;
-				background-size: 1.6rem;
+				background-size: 1.4rem;
 			}
 			
 			.shuaxinbtn .active {
-				animation: ani 0.3s infinite;
+				animation: ani 0.3s 1;
 			}
 			
 			.btn .zhidings {
 				background: url(img/zhiding1.png) no-repeat left center;
-				background-size: 1.6rem;
+				background-size: 1.4rem;
+				color: #469BD4;
 			}
 			
 			.shuaxinbg {
@@ -207,6 +209,51 @@
 					transform-origin: center;
 				}
 			}
+			.deleteout {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				background-color: rgba(0,0,0,0.1);
+			}
+			.deletebg {
+				display: inline-block;
+				width: 70%;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				border-radius: 12px;
+				background-color: #fff;
+				overflow: hidden;
+				transform: translate(-50%, -50%);
+			}
+			.title {
+				text-align: center;
+				height: 2.2rem;
+				line-height: 2.2rem;
+				font-size: 1.0rem;
+				color: #333333;
+			}
+			.biaoti {
+				display: inline-block;
+				text-align: left;
+				padding: 1.8rem;
+				font-size: 1.0rem;
+			}
+			.btnbottom {
+				width: 100%;
+				overflow: hidden;
+				border-top: solid 1px #ddd;
+			}
+			.btnbottom button {
+				float: left;
+				width: 50%;
+				padding: 0.8rem 0;
+				font-size: 0.9rem;
+				background-color: transparent;
+				display: inline-block;
+			}
 		</style>
 	</head>
 
@@ -227,9 +274,9 @@
 						<img src="img/chufang1.jpg" class="img" />
 					</div>
 					<div class="operation">
-						<span class="btn"><s class="zhiding zhidings"></s>置顶</span>
+						<span class="btn"><s class="zhiding">置顶</s></span>
 					<span class="btn shuaxinbtn"><s class="shuaxin"></s>刷新</span>
-					<span class="btn"><s class="delete"></s>删除</span>
+					<span class="btn deletebtn"><s class="delete"></s>删除</span>
 
 		</div>
 		</div>
@@ -243,17 +290,29 @@
 				<img src="img/chufang1.jpg" class="img" />
 			</div>
 			<div class="operation">
-				<span class="btn"><s class="zhiding zhidings"></s>置顶</span>
+				<span class="btn"><s class="zhiding">置顶</s></span>
 				<span class="btn shuaxinbtn"><s class="shuaxin"></s>刷新</span>
-				<span class="btn"><s class="delete"></s>删除</span>
+				<span class="btn deletebtn"><s class="delete"></s>删除</span>
 
 			</div>
 		</div>
 		</div>
-		</div>
-		<div class="shuaxinbg">
+		<div class="shuaxinbg" v-show="isshow">
 			<div class="textshuaxin">页面刷新中<s class="shuaxins"></s></div>
 		</div>
+		<div class="deleteout" v-show="isdelete">
+			<div class="deletebg">			
+				<p class="title">确认删除</p>
+			<span class="biaoti">我的贴子</span>
+			<div class="btnbottom">
+				<button class="canel" onclick="closediglog()">取消</button>
+				<button class="ok" onclick="okdiglog()">确定</button>
+			</div>
+			</div>
+
+		</div>
+		</div>
+
 	</body>
 
 </html>
@@ -262,7 +321,8 @@
 <script type="text/javascript">
 	function getDefaultData() {
 		return {
-			isshow: true
+			isshow: false,
+			isdelete:true
 		}
 	}
 	var vm = new Vue({
@@ -275,9 +335,20 @@
 		}
 	});
 	$(function() {
-		$(".shuaxinbtn").click(function() {
-			console.log("1231");
-			$(this).children(".shuaxin").addClass("active");
+		$("body").on("click", ".shuaxinbtn", function() {
+			vm.isshow = true;
+		})
+		$("body").on("click", ".zhiding", function() {
+			$(this).toggleClass("zhidings");
+		})
+		 $("body").on("click", ".deletebtn", function() {
+		 	vm.isdelete=!vm.isdelete;
 		})
 	})
+	function closediglog() {
+		vm.isdelete=!vm.isdelete;
+	}
+		function okdiglog() {
+		vm.isdelete=!vm.isdelete;
+	}
 </script>
